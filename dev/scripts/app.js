@@ -7,6 +7,7 @@ import Home from './Components/HomePage';
 import SignIn from './Components/SignIn';
 import SignUp from './Components/Signup';
 import Account from './Components/AccountPage';
+import NewProfile from './Components/NewProfile'
 import * as routes from './Constants/routes';
 
 class App extends React.Component {
@@ -30,6 +31,10 @@ class App extends React.Component {
           <Route
             exact path={routes.HOME}
             component={() => <HOME />}
+          />
+          <Route 
+            exact path={routes.NEW_PROFILE}
+            component={() => <NewProfile />}
           />
           </div>
         </Router>

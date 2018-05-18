@@ -5,11 +5,12 @@ import * as routes from '../Constants/routes';
 const Navigation = () => {
     return(
     <div>
-      <ul>
-        <li><Link to={routes.LANDING}> Home </Link></li>
-        <li><Link to={routes.SIGN_UP}> Signup </Link></li>
-        <li><Link to={routes.SIGN_IN}> Sign-In </Link></li>
-        <li><Link to={routes.ACCOUNT}> Account </Link></li>
+      <ul className="main-nav">
+        <li><Link className="main-nav__item" to={routes.LANDING}> Home </Link></li>
+          <li><Link className="main-nav__item" to={routes.SIGN_UP}> Signup </Link></li>
+          <li><Link className="main-nav__item" to={routes.SIGN_IN}> Sign-In </Link></li>
+          <li><Link className="main-nav__item" to={routes.ACCOUNT}> Account </Link></li>
+          <li><Link className="main-nav__item" to={routes.NEW_PROFILE}> New Profile </Link></li>
         </ul>
     </div>
     )}

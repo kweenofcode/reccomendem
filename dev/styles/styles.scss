@@ -1,0 +1,42 @@
+@import 'utils';
+@import 'typography';
+
+.hidden {
+  display: none;
+}
+body {
+  background: $yellow;
+}
+label {
+  margin: 10px 20px;
+}
+input[type=radio], input[type=checkbox] {
+  display: none;
+  &:checked + label {
+    background: lightgrey;
+    padding: 10px 20px;
+  }
+}
+input[type=text], input[type=password] {
+  padding: 10px;
+  border: 1px solid $jet;
+  margin: 20px;
+}
+.main-nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  &__item{
+  text-decoration: none;
+  color: $jet;
+  }
+}
+.list-item {
+  padding: 20px 20px 20px 20px;
+  &:hover {
+    background: red;
+  }
+}
+.options {
+  display: flex;
+}
