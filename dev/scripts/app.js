@@ -9,6 +9,7 @@ import SignUp from './Components/Signup';
 import Account from './Components/AccountPage';
 import NewProfile from './Components/NewProfile'
 import * as routes from './Constants/routes';
+import AccountPage from './Components/AccountPage'
 
 class App extends React.Component {
     render() {
@@ -35,6 +36,10 @@ class App extends React.Component {
           <Route 
             exact path={routes.NEW_PROFILE}
             component={() => <NewProfile />}
+          />
+          <Route 
+            exact path={routes.ACCOUNT_PAGE}
+            component={() => <AccountPage />}
           />
           </div>
         </Router>

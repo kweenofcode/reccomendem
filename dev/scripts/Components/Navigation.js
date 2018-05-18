@@ -11,6 +11,7 @@ const Navigation = () => {
           <li><Link className="main-nav__item" to={routes.SIGN_IN}> Sign-In </Link></li>
           <li><Link className="main-nav__item" to={routes.ACCOUNT}> Account </Link></li>
           <li><Link className="main-nav__item" to={routes.NEW_PROFILE}> New Profile </Link></li>
+          <li><Link className="main-nav__item" to={routes.ACCOUNT_PAGE}> Account </Link></li>
         </ul>
     </div>
     )}
