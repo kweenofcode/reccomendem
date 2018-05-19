@@ -59,7 +59,6 @@ class Signup extends React.Component {
             <form onSubmit={this.handleFormSubmit}>
               <input type="text" name="createEmail" onChange={(e) => this.handleChange(e, "createEmail")} placeholder="Please enter your e-mail address" value={this.state.createEmail} />
               <input type="password" name="createPassword" onChange={(e) => this.handleChange(e, "createPassword")} placeholder="Please enter your desired password" value={this.state.createPassword} />
-              <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username'/>
               {/* <button onClick={(e) => this.createUser(e)}>Submit</button> */}
               {/* Main text inputs */}
               </form> 

@@ -33,6 +33,7 @@ class AccountPage extends React.Component {
           return (
           <ul>
             <li>{user.firstName} {user.lastName}</li>
+              <li><img src={user.avatarURL} alt=""/></li>
             <li>{user.city}</li>
             <li>{user.gender}</li>
             <li>{user.sexuality}</li>
