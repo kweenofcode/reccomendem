@@ -79,12 +79,12 @@ input[type=text], input[type=password] {
 .hidden {
   display: none;
 }
-.list-item {
-  padding: 20px 20px 20px 20px;
-  &:hover {
-    background: grey;
-  }
-}
+// .list-item {
+//   padding: 20px 20px 20px 20px;
+//   &:hover {
+//     background: grey;
+//   }
+// }
 .app-page {
   display: flex;
   flex-direction: column;
@@ -103,6 +103,13 @@ input[type=text], input[type=password] {
     width: 50%;
     margin: 0 auto;
     height: 80vh;
+  }
+  &--wide {
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 .sign-in, .sign-out, .sign-up {

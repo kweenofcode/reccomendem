@@ -243,77 +243,86 @@ class NewProfile extends React.Component{
 
   render() {
     return(
-    <div>
-        <form action="#" onSubmit={this.handleFileUpload}>
-        <input type="file" ref={(ref) => { this.file = ref }} onChange={this.handleFileSelect}/>
-        <input type="submit" value="Upload" />
-      </form>
-      <form action="#" onSubmit={this.handleFormSubmit}>
-        <h2 className="header2">Your Personal Information</h2>
-        <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username' />
-        <input type="text" name="firstName" onChange={this.handleChange} value={this.state.firstName} placeholder='Please enter your first name' />
-        <input type="text" name="lastName" onChange={this.handleChange} value={this.state.lastName} placeholder='Please enter your last name' />
-        <input type="text" name="city" onChange={this.handleChange} value={this.state.city} placeholder='Please enter your city' />
-        {/* Renders sexuality options to the page */ }
-        <h2 className="header2">Your Sexuality</h2>
-        <div className="options">
-          {this.state.sexualityOptions.map((sexualityOption, i) => {
-            return (<NewOption
-              key={sexualityOption.key}
-              firebaseKey={sexualityOption.key}
-              identity={sexualityOption.value}
-              checked={this.state.selectedSexualityOption === sexualityOption.value}
-              value={sexualityOption.value}
-              handleOptionChange={this.handleSexualityOptionChange}
-            />)
-          })}
-        {/* Submit button for sexuality options */}
-          <div className="hidden">
-            <input type="text" name='sexuality' onChange={this.handleChange} value={this.state.sexuality} />
-            <button onClick={this.handleSubmitSexuality}>Not Yet Listed</button>
-          </div>
-        </div>
+      <div className="app-page">
+        <div className="app-page--wide">
+          <form action="#" onSubmit={this.handleFileUpload}>
+            <input type="file" ref={(ref) => { this.file = ref }} onChange={this.handleFileSelect}/>
+            <input type="submit" value="Upload" />
+          </form>
+          <form action="#" onSubmit={this.handleFormSubmit}>
+            <div>
+              <h2 className="header2">Your Personal Information</h2>
+              <input type="text" name="firstName" onChange={this.handleChange} value={this.state.firstName} placeholder='Please enter your first name' />
+              <input type="text" name="lastName" onChange={this.handleChange} value={this.state.lastName} placeholder='Please enter your last name' />
+              <input type="text" name="city" onChange={this.handleChange} value={this.state.city} placeholder='Please enter your city' />
+            </div>
+            {/* Renders sexuality options to the page */ }
+            <div>
+              <h2 className="header2">Your Sexuality</h2>
+              <div className="options">
+              {this.state.sexualityOptions.map((sexualityOption, i) => {
+                return (<NewOption
+                  key={sexualityOption.key}
+                  firebaseKey={sexualityOption.key}
+                  identity={sexualityOption.value}
+                  checked={this.state.selectedSexualityOption === sexualityOption.value}
+                  value={sexualityOption.value}
+                  handleOptionChange={this.handleSexualityOptionChange}
+                />)
+              })}
+              {/* Submit button for sexuality options */}
+              </div>
+              <div className="hidden">
+                <input type="text" name='sexuality' onChange={this.handleChange} value={this.state.sexuality} />
+                <button onClick={this.handleSubmitSexuality}>Not Yet Listed</button>
+              </div>
+            </div>
             {/* Renders culturalBackground options to the page */ }
-        <h2 className="header2">Your Cultural Background</h2>
-        <div className="options">
-          {this.state.culturalBackgroundOptions.map((culturalBackgroundOption) => {
-            return (<NewOption
-              key={culturalBackgroundOption.key}
-              firebaseKey={culturalBackgroundOption.key}
-              identity={culturalBackgroundOption.value}
-              checked={this.state.selectedCulturalBackgroundOption === culturalBackgroundOption.value}
-              value={culturalBackgroundOption.value}
-              handleOptionChange={this.handleCulturalBackgroundOptionChange}
-              className='list-item'
-            />)
-          })}
+            <div>
+              <h2 className="header2">Your Cultural Background</h2>
+              <div className="options">
+                {this.state.culturalBackgroundOptions.map((culturalBackgroundOption) => {
+                  return (<NewOption
+                    key={culturalBackgroundOption.key}
+                    firebaseKey={culturalBackgroundOption.key}
+                    identity={culturalBackgroundOption.value}
+                    checked={this.state.selectedCulturalBackgroundOption === culturalBackgroundOption.value}
+                    value={culturalBackgroundOption.value}
+                    handleOptionChange={this.handleCulturalBackgroundOptionChange}
+                    className='list-item'
+                  />)
+                })}
+              </div>
+            </div>
           {/* Submit button for culturalBackground options */}
           <div>
             <input type="text" name="culturalBackground" onChange={this.handleChange} value={this.state.culturalBackground} />
             <button onClick={this.handleSubmitCulturalBackground}> Not Yet Listed </button>
           </div>
-        </div>
         {/* Renders Gender options onto the page */ }
-        <h2 className="header2">Your Gender Identity</h2>
-        <div className="options">
-          {this.state.genderOptions.map((genderOption, i) => {
-            return (<NewOption
-              key={genderOption.key}
-              firebaseKey={genderOption.key}
-              identity={genderOption.value}
-              checked={this.state.selectedGenderOption === genderOption.value}
-              value={genderOption.value}
-              handleOptionChange={this.handleGenderOptionChange}
-              className="list-item"
-            />)
-          })}
-          {/* Submit button for new Gender option */}
+        <div>
+          <h2 className="header2">Your Gender Identity</h2>
+          <div className="options">
+            {this.state.genderOptions.map((genderOption, i) => {
+              return (<NewOption
+                key={genderOption.key}
+                firebaseKey={genderOption.key}
+                identity={genderOption.value}
+                checked={this.state.selectedGenderOption === genderOption.value}
+                value={genderOption.value}
+                handleOptionChange={this.handleGenderOptionChange}
+                className="list-item"
+              />)
+            })}
+            {/* Submit button for new Gender option */}
           <div className="hidden">
             <input type="text" name="gender" onChange={this.handleChange} value={this.state.gender} />
             <button onClick={this.handleSubmitGender}> Not Yet Listed </button>
           </div>
         </div>
-        {/* Renders skills list onto page */ }
+      </div>
+      {/* Renders skills list onto page */ }
+      <div>
         <h2 className="header2">Your Skills</h2>
         <div className="options">
           {this.state.skillsList.map((skill) => {
@@ -332,9 +341,11 @@ class NewProfile extends React.Component{
             <button onClick={this.handleSubmitSkill}>Not Yet Listed</button>
           </div>
         </div> 
+        </div>
         <input type="submit" />
       </form>
       <Link className="main-nav__item list-item" to={routes.ACCOUNT_PAGE}> Account Page </Link>
+      </div>
     </div>)
   }
 }

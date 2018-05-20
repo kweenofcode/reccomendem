@@ -36,6 +36,7 @@ class SignIn extends React.Component {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then((success) => {
       console.log(`Logged in as ${success.email}`);
+      console.log(firebase.auth().currentUser)
     }), (error) => {
       console.log(error);
     }
