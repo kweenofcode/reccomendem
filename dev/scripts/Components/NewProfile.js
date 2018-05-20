@@ -5,6 +5,7 @@ import firebase from './firebase';
 import Navigation from './Navigation';
 import * as routes from '../Constants/routes';
 import FileUploader from 'react-firebase-file-uploader'
+import { Link } from 'react-router-dom';
 
 class NewProfile extends React.Component{
   constructor() {
@@ -248,13 +249,13 @@ class NewProfile extends React.Component{
         <input type="submit" value="Upload" />
       </form>
       <form action="#" onSubmit={this.handleFormSubmit}>
-        <h2>Your Personal Information</h2>
+        <h2 className="header2">Your Personal Information</h2>
         <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username' />
         <input type="text" name="firstName" onChange={this.handleChange} value={this.state.firstName} placeholder='Please enter your first name' />
         <input type="text" name="lastName" onChange={this.handleChange} value={this.state.lastName} placeholder='Please enter your last name' />
         <input type="text" name="city" onChange={this.handleChange} value={this.state.city} placeholder='Please enter your city' />
         {/* Renders sexuality options to the page */ }
-        <h2>Your Sexuality</h2>
+        <h2 className="header2">Your Sexuality</h2>
         <div className="options">
           {this.state.sexualityOptions.map((sexualityOption, i) => {
             return (<NewOption
@@ -273,7 +274,7 @@ class NewProfile extends React.Component{
           </div>
         </div>
             {/* Renders culturalBackground options to the page */ }
-        <h2>Your Cultural Background</h2>
+        <h2 className="header2">Your Cultural Background</h2>
         <div className="options">
           {this.state.culturalBackgroundOptions.map((culturalBackgroundOption) => {
             return (<NewOption
@@ -293,7 +294,7 @@ class NewProfile extends React.Component{
           </div>
         </div>
         {/* Renders Gender options onto the page */ }
-        <h2>Your Gender Identity</h2>
+        <h2 className="header2">Your Gender Identity</h2>
         <div className="options">
           {this.state.genderOptions.map((genderOption, i) => {
             return (<NewOption
@@ -313,7 +314,7 @@ class NewProfile extends React.Component{
           </div>
         </div>
         {/* Renders skills list onto page */ }
-        <h2>Your Skills</h2>
+        <h2 className="header2">Your Skills</h2>
         <div className="options">
           {this.state.skillsList.map((skill) => {
             return (<Checkbox
@@ -322,7 +323,7 @@ class NewProfile extends React.Component{
               firebaseKey={skill.key}
               label={skill.value}
               handleCheckbox={this.handleCheckbox}
-              className="list-item"
+              className="list-xitem"
             />)
           })}
           {/* Submit button for new skills option */}
@@ -333,6 +334,7 @@ class NewProfile extends React.Component{
         </div> 
         <input type="submit" />
       </form>
+      <Link className="main-nav__item list-item" to={routes.ACCOUNT_PAGE}> Account Page </Link>
     </div>)
   }
 }

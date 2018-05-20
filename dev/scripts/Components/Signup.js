@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // Importing info for the React router
+import { BrowserRouter as Router, Route, } from 'react-router-dom';
 import {Link} from 'react-router-dom';
 // Navigation is the navigation bar
 import Navigation from './Navigation';
@@ -8,6 +9,7 @@ import * as routes from '../Constants/routes';
 // Importing firebase
 import firebase from './firebase';
 // Creating checkboxes for skills list
+import NewProfile from './NewProfile';
 
 class Signup extends React.Component {
   constructor() {
@@ -26,6 +28,8 @@ class Signup extends React.Component {
     const email = this.state.createEmail;
     const password = this.state.createPassword;
     console.log(email, password);
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch((error) => console.log(error.code, error.message));
     this.setState({
       createEmail: '',
       createPassword: ''
@@ -53,16 +57,24 @@ class Signup extends React.Component {
   // Renders to the page
   render() {
       return (
-          <div className="create-user">
+        <div className="app-page app-page--signup">
+          <div className="app-page--center">
             {/* Start of form to create new user */}
-            <h2>Create An Account</h2>
-            <form onSubmit={this.handleFormSubmit}>
-              <input type="text" name="createEmail" onChange={(e) => this.handleChange(e, "createEmail")} placeholder="Please enter your e-mail address" value={this.state.createEmail} />
-              <input type="password" name="createPassword" onChange={(e) => this.handleChange(e, "createPassword")} placeholder="Please enter your desired password" value={this.state.createPassword} />
-              {/* <button onClick={(e) => this.createUser(e)}>Submit</button> */}
-              {/* Main text inputs */}
-              </form> 
+            {this.state.loggedIn ?
+              <div className='sign-out'>
+                <Link className="btn btn__txt btn__txt--smaller btn--square" to={routes.ACCOUNT_PAGE}>Your Account</Link>
+              </div>
+              : <div>
+                  <h2 className="header2 header2--dark">Create An Account</h2>
+                  <form className="sign-up" onSubmit={this.handleFormSubmit}>
+                    <input className="input__txt" type="text" name="createEmail" onChange={(e) => this.handleChange(e, "createEmail")} placeholder="Please enter your e-mail address" value={this.state.createEmail} />
+                    <input className="input__txt" type="password" name="createPassword" onChange={(e) => this.handleChange(e, "createPassword")} placeholder="Please enter your desired password" value={this.state.createPassword} />
+                    <button className="btn btn__txt btn__txt--smaller btn--square" onClick={(e) => this.createUser(e)}>Submit</button>
+                <p className="paragraph">Already have an account? <Link to={routes.SIGN_IN}>Sign In</Link></p>
+                </form>
+              </div>}
           </div>
+        </div>
       )
     }
   }

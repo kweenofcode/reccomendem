@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import * as routes from '../Constants/routes';
+import AccountPage from './AccountPage';
 import firebase from 'firebase';
 
 class SignIn extends React.Component {
@@ -44,18 +47,24 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app-page app-page--signin">
+      <div className="app-page--center">
         {this.state.loggedIn ?
           <div className='sign-out'>
-            <button onClick={this.signOut}>Sign Out</button>
+              <Link className="btn btn__txt btn__txt--smaller btn--square" to={routes.ACCOUNT_PAGE}>Your Account</Link>   
+              <button className="btn btn__txt btn__txt--smaller btn--square" onClick={this.signOut}>Sign Out</button>
           </div>
-          : <div className="sign-in">
-        <form onSubmit={(e) => this.signIn(e)}>
-          <input type="text" placeholder="Please enter your e-mail address" onChange={(event) => this.handleChange(event, "loginEmail")} name="loginEmail" value={this.state.loginEmail}/>
-          <input type="password" placeholder="Please enter your desired password" onChange={(event) => this.handleChange(event, "loginPassword")}  name="loginPassword" value={this.state.loginPassword}/>
-          <input type="submit" value="Login" />
-        </form>
+          : <div>
+            <h2 className="header2 header2--dark"> Welcome Back!</h2>
+            <p className="paragraph">Please sign in below</p>
+            <form className="sign-in" onSubmit={(e) => this.signIn(e)}>
+            <input className="input__txt" type="text" placeholder="Please enter your e-mail address" onChange={(event) => this.handleChange(event, "loginEmail")} name="loginEmail" value={this.state.loginEmail}/>
+            <input className="input__txt" type="password" placeholder="Please enter your password" onChange={(event) => this.handleChange(event, "loginPassword")}  name="loginPassword" value={this.state.loginPassword}/>
+            <input className="btn btn__txt btn__txt--smaller btn--square" type="submit" value="Login" />
+            <p className="paragraph">Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link></p>
+          </form>
         </div> }
+        </div>     
     </div>
     )
   }
