@@ -13,7 +13,7 @@ body {
   font-size: 10rem;
   margin: 0;
   text-align: center;
-  padding: 70px 0;
+  // padding: 70px 0;
   text-shadow: 5px 5px 0 $light-blue,
                 6px 6px 10px $pink;
   @media (max-width: $first-breakpoint) {
@@ -25,6 +25,12 @@ body {
   &--dark {
   color: $jet;
   text-align: center;
+  }
+  &--large {
+    font-size: 5rem;
+    text-align: center;
+    margin: 0;
+    text-transform: lowercase;
   }
 }
 .header3 {
@@ -61,6 +67,9 @@ body {
   &--large {
     font-size: 1.6rem;
     line-height: 2.7;
+  }
+  &--left {
+    text-align: left;
   }
 }
 .input__txt {

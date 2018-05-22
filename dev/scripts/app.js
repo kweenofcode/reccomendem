@@ -10,6 +10,7 @@ import Landing from './Components/Landing'
 import NewProfile from './Components/NewProfile'
 import SignIn from './Components/SignIn';
 import SignUp from './Components/Signup';
+import About from './Components/About';
 
 class App extends React.Component {
     render() {
@@ -36,6 +37,10 @@ class App extends React.Component {
           <Route 
             exact path={routes.ACCOUNT_PAGE}
             component={() => <AccountPage />}
+          />
+          <Route
+            exact path={routes.ABOUT}
+            component={() => <About />}
           />
           </div>
         </Router>

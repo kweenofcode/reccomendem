@@ -5,3 +5,4 @@ export const HOME = '/home';
 export const ACCOUNT = '/account';
 export const NEW_PROFILE = '/profile';
 export const ACCOUNT_PAGE = '/accountpage';
+export const ABOUT = '/about';

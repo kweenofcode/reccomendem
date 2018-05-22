@@ -9,6 +9,18 @@
 // 04 - AccountPage
 
 // 01 - Landing Page
+.hide-nav {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.hidden-list {
+  position: fixed;
+  flex-direction: column;
+  right: 50px;
+  top: 30px;
+}
 .main-nav {
   position: fixed;
   top: 30px;
@@ -20,21 +32,21 @@
 }
 .main-header {
   position: fixed;
-  top: 0px;
+  top: 20px;
   left: 50%;
   transform: translateX(-50%);
   @media (max-width: $second-breakpoint) {
     transform: rotate(270deg) translateX(0);
-    left: -300px;
-    top: 35%;
+    left: -280px;
+    top: 40%;
   }
 }
 .main-list {
   height: calc(100vh - 50px);
-  width: 100%;
+  width: 80%;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin: 0px auto;
   @media (max-width: $second-breakpoint) {
     width: 80%;
     margin-left: 100px;
@@ -47,7 +59,6 @@
 .app-page {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   justify-content: center;
   min-height: 100vh;
   max-width: 1500px;
@@ -60,7 +71,6 @@
     border: 2px solid $pink;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background: $white;
@@ -81,6 +91,14 @@
     }
     @media(max-width: $third-breakpoint) {
       width: 80%;
+    }
+  }
+  &--padded {
+    padding: 40px;
+    @media(max-width: $second-breakpoint) {
+      width: 80%;
+      height: 100%;
+      margin: 50px auto;
     }
   }
 }
