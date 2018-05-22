@@ -1,15 +1,58 @@
-$bright-pink: #ff47da;
-$dusty-pink: #ff87ab;
-$purple: rgb(61, 43, 61);
+// Color variables
 $jet: #312f2f;
-$dark-blue: rgb(47, 46, 75);
 $pink: #ea5eae;
 $white: #fbfbfa;
 $black: #1f1d13;
 $light-blue: #72caf8;
 $gold: #f7ea07;
-
-
-
+// Font variables
 $header-font: 'Varela Round', sans-serif;
 $body-font: 'Hind Madurai', sans-serif;;
+// media queries
+$first-breakpoint: 1230px;
+$second-breakpoint: 1100px;
+$third-breakpoint: 725px;
+// For labels to ensure the site remains accessible to screen readers
+.screen-reader {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+// For my main wrapper
+.wrapper{
+  margin: 0;
+  padding: 0;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+// General body styles
+body {
+  background: $light-blue;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+}
+// Standard styles for images
+img {
+  display: block;
+  max-width: 100%;
+}
+// Standard for spans
+span {
+  display: block;
+}
+// Standard styles for lists
+.list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}

@@ -2,7 +2,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  // color: white;
+  color: white;
   font-family: $body-font;
 }
 .header1, .header2, .header3 {
@@ -13,12 +13,24 @@ body {
   font-size: 10rem;
   margin: 0;
   text-align: center;
+  padding: 70px 0;
   text-shadow: 5px 5px 0 $light-blue,
                 6px 6px 10px $pink;
+  @media (max-width: $first-breakpoint) {
+    font-size: 8rem;
+  }
 }
-.header2--dark {
-  color: $black;
+.header2{
+  font-size: 2rem;
+  &--dark {
+  color: $jet;
   text-align: center;
+  }
+}
+.header3 {
+  font-size: 1.8rem;
+  color: $pink;
+  text-transform: uppercase;
 }
 .btn__txt {
   color: $white;
@@ -38,11 +50,23 @@ body {
     font-size: 1.5rem;
     padding: 0;    
   }
+  @media (max-width: $third-breakpoint) {
+    padding: 25px;
+  }
 }
 .paragraph {
   color: $jet;
+  font-size: 1.6rem;
   text-align: center;
+  &--large {
+    font-size: 1.6rem;
+    line-height: 2.7;
+  }
 }
 .input__txt {
   font-size: 1.5rem;
+}
+.fa-twitter, .fa-facebook, .fa-link, .fa-instagram {
+  color: $pink;
+  font-size: 3rem;
 }

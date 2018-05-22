@@ -1,14 +1,15 @@
+// standard imports
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, } from 'react-router-dom';
-import Landing from './Components/Landing'
+// Items for navigation
 import Navigation from './Components/Navigation';
-import SignIn from './Components/SignIn';
-import SignUp from './Components/Signup';
-import Account from './Components/AccountPage';
-import NewProfile from './Components/NewProfile'
 import * as routes from './Constants/routes';
 import AccountPage from './Components/AccountPage'
+import Landing from './Components/Landing'
+import NewProfile from './Components/NewProfile'
+import SignIn from './Components/SignIn';
+import SignUp from './Components/Signup';
 
 class App extends React.Component {
     render() {

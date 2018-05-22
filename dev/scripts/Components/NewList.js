@@ -12,7 +12,7 @@ class Checkbox extends React.Component{
           checked = {this.props.isChecked}
           onChange={()=>{this.props.handleCheckbox(this.props.firebaseKey, this.props.isChecked)}}
           />
-        <label htmlFor={this.props.firebaseKey}>
+        <label className="paragraph paragraph--large" htmlFor={this.props.firebaseKey}>
         {this.props.label}
         </label>
       </div>

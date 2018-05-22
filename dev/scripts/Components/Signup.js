@@ -74,15 +74,15 @@ class Signup extends React.Component {
             {/* Start of form to create new user */}
             {this.state.loggedIn ?
               <div className='sign-out'>
-                <Link className="btn btn__txt btn__txt--smaller btn--square" to={routes.NEW_PROFILE}>Create Your Profile</Link>
+                <Link className="btn btn__txt btn__txt--smaller btn--square btn--wide" to={routes.NEW_PROFILE}>Create Your Profile</Link>
               </div>
               : <div>
                   <h2 className="header2 header2--dark">Create An Account</h2>
                   <form className="sign-up" onSubmit={this.handleFormSubmit}>
-                    <input type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username' />
-                    <input className="input__txt" type="text" name="createEmail" onChange={(e) => this.handleChange(e, "createEmail")} placeholder="Please enter your e-mail address" value={this.state.createEmail} />
-                    <input className="input__txt" type="password" name="createPassword" onChange={(e) => this.handleChange(e, "createPassword")} placeholder="Please enter your desired password" value={this.state.createPassword} />
-                    <button className="btn btn__txt btn__txt--smaller btn--square" onClick={(e) => this.createUser(e)}>Submit</button>
+                    <input className="input__txt main" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username' />
+                    <input className="input__txt main" type="text" name="createEmail" onChange={(e) => this.handleChange(e, "createEmail")} placeholder="Please enter your e-mail address" value={this.state.createEmail} />
+                    <input className="input__txt main" type="password" name="createPassword" onChange={(e) => this.handleChange(e, "createPassword")} placeholder="Please enter your desired password" value={this.state.createPassword} />
+                    <button className="btn btn__txt btn__txt--smaller btn--square btn--wide" onClick={(e) => this.createUser(e)}>Submit</button>
                 <p className="paragraph">Already have an account? <Link to={routes.SIGN_IN}>Sign In</Link></p>
                 </form>
               </div>}

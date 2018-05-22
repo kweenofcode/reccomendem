@@ -1,128 +1,339 @@
 @import 'setup';
 @import 'utils';
 @import 'typography';
+@import 'btns';
 
-body {
-  background: $light-blue;
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100%;
-}
-.wrapper{
-  margin: 0;
-  padding: 0;
-  max-width: 1500px;
-  margin: 0 auto;
-}
-span {
-  display: block;
-}
-.list {
-  list-style: none;
-  display: flex;
-  margin: 0;
-}
-.btn {
-  border: 2px solid $pink;
-  display: inline-block;
-  margin: 50px auto;
-  background: $pink;
-  border-radius: 50%;
-  transition: all .5s ease-in-out;
-  padding: 30px;
-  &:hover {
-    background: $gold;
-    border: 2px solid $gold;
-  }
-  &--ripple:hover {
-    border-radius: 50%;
-    animation: ripple 1s ease-in-out infinite;
-  }
-  &--main {
-    padding: 150px 0;  
-    &:hover {
-      color: $gold;
-    }
-  }
-  &--square {
-    border-radius: 0;
-    width: 400px;
-    margin: 10px auto;
-    padding: 20px;
-  }
-}
+// 01 - Landing Page
+// 02 - General Styles
+// 03 - New Profile Page
+// 04 - AccountPage
+
+// 01 - Landing Page
 .main-nav {
   position: fixed;
   top: 30px;
   right: 50px;
+  z-index: 999;
+  @media (max-width: $third-breakpoint) {
+    top: 0;
+  }
 }
-img {
-  max-width: 100%;
+.main-header {
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  @media (max-width: $second-breakpoint) {
+    transform: rotate(270deg) translateX(0);
+    left: -300px;
+    top: 35%;
+  }
+}
+.main-list {
+  height: calc(100vh - 50px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  @media (max-width: $second-breakpoint) {
+    width: 80%;
+    margin-left: 100px;
+  }
+  @media (max-width: $third-breakpoint) {
+    flex-direction: column;
+  }
+}
+// 02 - General Styles
+.app-page {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 100vh;
+  max-width: 1500px;
+  margin: 0 auto;
+  &--signin, &--signup {
+    width: 100%;
+  }
+  &--center, &--wide {
+    margin: 0 auto;
+    border: 2px solid $pink;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+  }
+  &--center {
+    width: 50%;
+    height: 80vh;
+    @media (max-width: $third-breakpoint) {
+      width: 300px;
+    }
+  }
+  &--wide {
+    width: 900px;
+    border: 2px solid $gold;
+    position: relative;
+    @media(max-width: $second-breakpoint) {
+      width: 700px;
+    }
+    @media(max-width: $third-breakpoint) {
+      width: 80%;
+    }
+  }
+}
+// Styles for three specific pages
+.sign-in, .sign-out, .sign-up {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media (max-width: $second-breakpoint) {
+    width: 80%;
+  }
+}
+// 03 - New Profile Page
+.profile-page {
+  margin: 80px 0;
 }
 label {
-  margin: 10px 20px;
+  color: $jet;
+  padding: 10px 20px;
 }
 input[type=radio], input[type=checkbox] {
   display: none;
   &:checked + label {
-    background: lightgrey;
+    background: $gold;
+    color: $jet;
     padding: 10px 20px;
   }
 }
-input[type=text], input[type=password] {
+input[type=text].main, input[type=password] {
   padding: 20px;
   width: 400px;
   border: 1px solid $pink;
   margin: 10px auto;
+  @media(max-width: $second-breakpoint) {
+    width: 200px;
+  }
+}
+input[type=file]{
+  background-color: lighten($gold, 20);
+  padding: 25px 0 21px 20px;
+  color: $jet;
 }
 .hidden {
   display: none;
 }
-// .list-item {
-//   padding: 20px 20px 20px 20px;
-//   &:hover {
-//     background: grey;
-//   }
-// }
-.app-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  &--signin, &--signup {
-    width: 100%;
-  }
-  &--center {
-    background: $white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid $pink;
-    width: 50%;
-    margin: 0 auto;
-    height: 80vh;
-  }
-  &--wide {
-    background: $white;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: 0 auto;
-  }
-}
-.sign-in, .sign-out, .sign-up {
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-}
 .options {
   display: flex;
+  flex-wrap: wrap;
 }
+.profile-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin: 30px auto;
+  &__name {
+    display: flex;
+    flex-wrap: wrap;  
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+    }
+  &--horizontal {
+    margin: 0 auto;
+  }
+  &__input {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+.input--profile {
+  width: 40%;
+  padding: 15px 10px;
+  margin: 10px;
+  border: 2px solid $gold; 
+  &--small {
+    padding: 10px;
+    border: 2px solid $gold;
+  }
+  @media(max-width: $third-breakpoint) {
+    width: 200px;
+  }
+}
+.additional-option {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px auto;
+}
+.accounts-page {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+// Special animated DIV for when photos are uploading to Firebase
+.loading {
+  height: 200px;
+  width: 200px;
+  background-image: linear-gradient( $gold, $white, $gold);
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 2s ease-in-out infinite both;
+  margin: 50px auto;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    align-items: center;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%) translateY(-50%);
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background: $white;
+  }
+}
+// 04 - Account Page
+.profile {
+  width: 900px;
+  min-height: 450px;
+  margin: 0px auto 150px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  color: $jet;
+  box-shadow: 0 0 10px 2px $pink;
+  border: 1px solid $pink;
+  background: $white;
+  position: relative;
+  top: 50px;
+  padding: 100px 0 150px 320px;
+  &__img {
+    box-shadow: 0 0 10px 0 $gold; 
+    display: flex;
+    position: absolute;
+    left: -20px;
+    top: -100px;
+    height: 400px;
+    width: 300px;
+    object-fit: cover;
+    background: $gold;
+    @media (max-width: $second-breakpoint) {
+      top: -50px;
+    }
+  }
+  &__name {
+    font-size: 6rem;
+    position: absolute;;
+    right: 400px;
+    top: -100px;
+    letter-spacing: 1px;
+    margin: 40px 0 0;
+    text-shadow: 0 0 2px $white;
+    &--last {
+      position: relative;
+      left: 20px;
+    }
+    @media (max-width: $second-breakpoint) {
+      top: -50px;
+      right: 100px;
+    }
+    @media (max-width: $third-breakpoint) {
+      transform: rotate(270deg);
+      right: -75px;
+      top: 0;
+    }
+  }
+  &__list {
+    flex-flow: column;
+    justify-content: space-between;
+    padding: 0;
+    &__item {
+      display: flex;
+      flex-direction: row;
+      &__header {
+        font-size: 1.6rem;
+        padding: 0 10px 0 0;
+        font-weight: bold;
+      }
+    }
+  }
+  &__skills {
+    display: flex;
+    flex-flow: row wrap;
+    &__item {
+      padding: 0 10px 0 0;
+    }
+  }
+  &__social {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 900px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    &__item {
+      width: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &__link {
+      text-decoration: none;
+      color: $jet;
+      padding: 10px;
+    }
+    &__list {
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: $second-breakpoint) {
+      width: 600px;
+    }
+    @media (max-width: $third-breakpoint) {
+      width: 400px;
+    }
+  }
+  @media (max-width: $second-breakpoint) {
+    width: 600px;
+    padding: 150px 0 250px 320px;    
+  }
+  @media (max-width: $third-breakpoint) {
+    width: 400px;
+    padding: 350px 20px 370px 20px;
+    text-align: center;
+  }
+}
+.input__label {
+  padding: 0;
+  color: $jet;
+}
+// Animation for main navigation and landing page buttons
 @keyframes ripple {
   50% {
     box-shadow: 0 0 0 20px $light-blue,
                 0 0 0 30px $gold;
+  }
+}
+// Animation for uploading animation
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg)
   }
 }

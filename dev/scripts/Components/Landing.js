@@ -6,8 +6,8 @@ class Landing extends React.Component {
   render() {  
     return (
     <div className="app-page">
-      <h1 className="header1">Recommend'em</h1>
-      <ul className="list">
+      <h1 className="header1 main-header">Recommend'em</h1>
+      <ul className="list main-list">
         <li className="btn btn--main btn--ripple"><Link className="btn__txt" to={routes.SIGN_IN}> Sign In</Link></li>
         <li className="btn btn--main btn--ripple"><Link className="btn__txt" to={routes.SIGN_UP}> Sign Up</Link></li>
       </ul>
