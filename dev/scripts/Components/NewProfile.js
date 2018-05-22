@@ -321,7 +321,7 @@ class NewProfile extends React.Component{
             {/* Start of identity options */}
             <div className='profile-item'>
               <h2 className="header2 header2--dark">Don't See Your Preferred Term?</h2>
-              <button className='btn btn--square btn--small btn__txt btn__txt--smaller btn--yellow' onClick={this.toggleHidden}>Add your term</button>
+              <button className='btn btn--square btn--small btn__txt btn__txt--smaller btn--yellow' onClick={this.toggleHidden}>Add your identity</button>
             </div>
             {/* Renders sexuality options to the page */ }
             <div className="profile-item">
@@ -341,7 +341,7 @@ class NewProfile extends React.Component{
               </div>
               <div className={this.state.hidden}>
                 <input className="input--profile input--profile--small input__txt" type="text" name='sexuality' onChange={this.handleChange} value={this.state.sexuality} />
-                <button className="btn__txt--smaller btn__txt btn btn--square btn--small btn--yellow" onClick={this.handleSubmitSexuality}>Add My Term</button>
+                <button className="btn__txt--smaller btn__txt btn btn--square btn--small btn--yellow" onClick={this.handleSubmitSexuality}>Add My Identity</button>
               </div>
             </div>
             {/* Renders culturalBackground options to the page */ }
@@ -363,7 +363,7 @@ class NewProfile extends React.Component{
               {/* Submit button for culturalBackground options */}
               <div className={this.state.hidden}>
                 <input className="input--profile input--profile--small input__txt" type="text" name="culturalBackground" onChange={this.handleChange} value={this.state.culturalBackground} />
-                <button className="btn__txt--smaller btn__txt btn btn--square btn--small btn--yellow" onClick={this.handleSubmitCulturalBackground}> Add My Term </button>
+                <button className="btn__txt--smaller btn__txt btn btn--square btn--small btn--yellow" onClick={this.handleSubmitCulturalBackground}> Add My Identity </button>
               </div>
             </div>
             {/* Renders Gender options onto the page */ }
@@ -385,7 +385,7 @@ class NewProfile extends React.Component{
               {/* Submit button for new Gender option */}
               <div className={this.state.hidden}>
                 <input className="input--profile input--profile--small input__txt" type="text" name="gender" onChange={this.handleChange} value={this.state.gender} />
-                <button className="btn btn__txt btn__txt--smaller btn--square btn--small btn--yellow"onClick={this.handleSubmitGender}> Add My Term </button>
+                <button className="btn btn__txt btn__txt--smaller btn--square btn--small btn--yellow"onClick={this.handleSubmitGender}> Add My Identity </button>
               </div>
             </div>
             {/* Renders skills list onto page */ }
