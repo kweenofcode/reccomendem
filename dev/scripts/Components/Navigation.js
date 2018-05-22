@@ -32,7 +32,7 @@ class Navigation extends React.Component {
     return(
     <div>
       <ul onClick={this.toggleHidden} className={this.state.hideMenu}>
-          <li className="main-nav__item btn__txt btn btn__txt--small btn--ripple"><i className="fa fa-bars"></i></li>
+          <li className="main-nav__item btn__txt btn btn--thin btn__txt--small btn--ripple"><i className="fa fa-bars"></i></li>
       </ul>
         <ul className={this.state.hideNav}>
           <li className="main-nav__item btn--thin btn__txt btn btn__txt--small btn--ripple" onClick={this.reToggleHidden}>X</li>
