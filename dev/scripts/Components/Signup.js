@@ -72,11 +72,12 @@ class Signup extends React.Component {
         <div className="app-page app-page--signup">
           <div className="app-page--center">
             {/* Start of form to create new user */}
-            {this.state.loggedIn ?
+            {/* {this.state.loggedIn ? */}
               <div className='sign-out'>
                 <Link className="btn btn__txt btn__txt--smaller btn--square btn--wide" to={routes.NEW_PROFILE}>Create Your Profile</Link>
               </div>
-              : <div>
+              {/* : */}
+               <div>
                   <h2 className="header2 header2--dark">Create An Account</h2>
                   <form className="sign-up" onSubmit={this.handleFormSubmit}>
                     <input className="input__txt main" type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Please enter your desired username' />
@@ -85,7 +86,8 @@ class Signup extends React.Component {
                     <button className="btn btn__txt btn__txt--smaller btn--square btn--wide" onClick={(e) => this.createUser(e)}>Submit</button>
                 <p className="paragraph">Already have an account? <Link to={routes.SIGN_IN}>Sign In</Link></p>
                 </form>
-              </div>}
+              </div>
+              {/* } */}
           </div>
         </div>
       )
