@@ -7,7 +7,7 @@
 // 02 - General Styles
 // 03 - New Profile Page
 // 04 - AccountPage
-.sign-up__link {
+.sign-up__link, .profile-item__link {
   color: inherit;
   text-decoration: none;
   font-style: italic;
@@ -133,7 +133,7 @@
   &--wide {
     margin: 90px auto;
     width: 86%;
-    border: 2px solid $gold;
+    border: 2px solid $pink;
     position: relative;
     padding-bottom: 50px;
     @media(max-width: $third-breakpoint) {
@@ -214,6 +214,10 @@ input[type=file]{
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  padding: 20px 0;
+  &__title {
+    margin-bottom: 0;
+  }
   &__name {
     display: flex;
     flex-wrap: wrap;  
@@ -296,48 +300,59 @@ input[type=file]{
 }
 // 04 - Account Page
 .profile {
-  width: 900px;
-  min-height: 450px;
-  margin: 100px auto 150px;
+  width: 60%;
+  margin: 100px auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   color: $jet;
-  box-shadow: 0 0 10px 2px $pink;
-  border: 1px solid $pink;
+  border: 2px solid $pink;
   background: $white;
   position: relative;
   top: 50px;
-  padding: 100px 0 150px 320px;
+  &__header {
+    margin: 5px 0;
+    position: fixed;
+    left: -150px;
+    top: 40%;
+    transform: rotate(270deg)
+  }
   &__img {
     display: flex;
-    position: absolute;
+    position: relative;
+    border: 2px solid lightgrey;
     left: -20px;
     top: -70px;
     height: 400px;
     width: 300px;
     object-fit: cover;
-    background: $gold;
     @media (max-width: $second-breakpoint) {
       top: -50px;
     }
   }
+  &__about {
+    position: relative;
+    top: -50px;
+    flex: 1 1 auto;
+    margin-left: 10px;
+    &__contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: -50px;
+      right: -95px;
+      padding: 20px;
+    }
+  }
   &__name {
     font-size: 6rem;
-    position: absolute;;
-    right: 400px;
-    top: -100px;
+    position: relative;
+    left: 0;
+    top: -20px;
     letter-spacing: 1px;
-    margin: 40px 0 0;
     text-shadow: 0 0 2px $white;
-    &--last {
-      position: relative;
-      left: 20px;
-    }
-    @media (max-width: $second-breakpoint) {
-      top: -50px;
-      right: 100px;
-    }
+    margin: 0;
     @media (max-width: $third-breakpoint) {
       transform: rotate(270deg);
       right: -75px;
@@ -366,27 +381,37 @@ input[type=file]{
     }
   }
   &__social {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 900px;
+    flex: 1 1 auto;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+    flex-flow: column wrap;
+    align-items: center;
+    margin-bottom: 50px;
     &__item {
-      width: 225px;
       display: flex;
+      justify-content: space-around;
       align-items: center;
       justify-content: center;
     }
+    // &__header {
+    //   margin: 0;
+    // }
     &__link {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
       text-decoration: none;
-      color: $jet;
       padding: 10px;
+      & .paragraph {
+        margin: 0;
+      }
+      &:hover p, &:hover .fa-facebook, &:hover .fa-instagram, &:hover .fa-link, &:hover .fa-twitter {
+        color: $gold;
+        cursor: pointer;
+      }
     }
     &__list {
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
     }
     @media (max-width: $second-breakpoint) {
       width: 600px;
@@ -396,14 +421,14 @@ input[type=file]{
     }
   }
   @media (max-width: $second-breakpoint) {
-    width: 600px;
-    padding: 150px 0 250px 320px;    
+    width: 80%;
+    min-height: 500px;   
   }
-  @media (max-width: $third-breakpoint) {
-    width: 400px;
-    padding: 350px 20px 370px 20px;
-    text-align: center;
-  }
+  // @media (max-width: $third-breakpoint) {
+  //   width: 400px;
+  //   padding: 350px 20px 370px 20px;
+  //   text-align: center;
+  // }
 }
 .input__label {
   padding: 0;

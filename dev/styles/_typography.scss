@@ -66,10 +66,11 @@ body {
 }
 .paragraph {
   color: $jet;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-align: center;
+  transition: color .3s ease-in-out;  
   &--large {
-    font-size: 1.6rem;
+    font-size: 2rem;
     line-height: 2.7;
   }
   &--left {
@@ -86,4 +87,6 @@ body {
 .fa-twitter, .fa-facebook, .fa-link, .fa-instagram {
   color: $pink;
   font-size: 3rem;
+  margin: 0 10px;
+  transition: color .3s ease-in-out;
 }

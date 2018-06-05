@@ -294,7 +294,7 @@ class NewProfile extends React.Component{
           <form action="#" onSubmit={this.handleFormSubmit}>
           {/* Personal Information */}
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Personal Information</h2>
+              <h2 className="header2 header2--dark profile-item__title">Personal Information</h2>
               <div className="profile-item__name">
                 <label className="screen-reader" htmlFor={this.state.firstName}>First Name</label>
                 <input className="input__txt input--profile" type="text" name="firstName" onChange={this.handleChange} value={this.state.firstName} id={this.state.firstName} placeholder='Please enter your first name' />
@@ -308,7 +308,7 @@ class NewProfile extends React.Component{
             </div>
             {/* Web Presence */}
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Web Presence</h2>
+              <h2 className="header2 header2--dark profile-item__title">Web Presence</h2>
               <div className="profile-item__name">
                 <label className="screen-reader" htmlFor={this.state.website}>Website</label>
                 <input className="input__txt input--profile" type="text" name="website" onChange={this.handleChange} value={this.state.website} id={this.state.website} placeholder='Please enter your website' />
@@ -322,13 +322,13 @@ class NewProfile extends React.Component{
             </div>
             {/* Start of identity options */}
             <div className='profile-item'>
-              <h2 className="header2 header2--dark">Don't See Your Preferred Term?</h2>
+              <h2 className="header2 header2--dark profile-item__title">Don't See Your Preferred Term?</h2>
               <button className='btn btn--square btn--small btn__txt btn__txt--smaller btn--yellow' id="addBtn" onClick={this.toggleHidden}>Add your identity</button>
             </div>
             {/* Renders sexuality options to the page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Your Sexuality</h2>
-              <p className="paragraph paragraph--light">Select your Sexuality. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>   
+              <h2 className="header2 header2--dark profile-item__title">Your Sexuality</h2>
+              <p className="paragraph paragraph--light">Select One <a className="profile-item__link" href="#" onClick={this.toggleHidden}> ( Don't see your preferred term listed? )</a></p>   
               <div className="options">
                 {this.state.sexualityOptions.map((sexualityOption, i) => {
                   return (<NewOption
@@ -349,8 +349,8 @@ class NewProfile extends React.Component{
             </div>
             {/* Renders culturalBackground options to the page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Your Cultural Background</h2>
-              <p className="paragraph paragraph--light">Select your Cultural Background. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>              
+              <h2 className="header2 header2--dark profile-item__title">Your Cultural Background</h2>
+              <p className="paragraph paragraph--light">Select One <a className="profile-item__link" href="#" onClick={this.toggleHidden}> ( Don't see your preferred term listed? )</a></p>              
               <div className="options">
                 {this.state.culturalBackgroundOptions.map((culturalBackgroundOption) => {
                   return (<NewOption
@@ -372,8 +372,8 @@ class NewProfile extends React.Component{
             </div>
             {/* Renders Gender options onto the page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Your Gender Identity</h2>
-              <p className="paragraph paragraph--light">Select your Gender Identity. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>
+              <h2 className="header2 header2--dark profile-item__title">Your Gender Identity</h2>
+              <p className="paragraph paragraph--light">Select One <a className="profile-item__link" href="#" onClick={this.toggleHidden}> ( Don't see your preferred term listed? )</a></p>
               <div className="options">
                 {this.state.genderOptions.map((genderOption, i) => {
                   return (<NewOption
@@ -395,8 +395,8 @@ class NewProfile extends React.Component{
             </div>
             {/* Renders skills list onto page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Your Skills</h2>
-              <p className="paragraph paragraph--light">Select all skills you possess. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>
+              <h2 className="header2 header2--dark profile-item__title">Your Skills</h2>
+              <p className="paragraph paragraph--light">Select all that apply. <a className="profile-item__link" href="#" onClick={this.toggleHidden}> (Don't see your skill listed?) </a></p>
               <div className="options">
                 {this.state.skillsList.map((skill) => {
                   return (<Checkbox
