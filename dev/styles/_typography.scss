@@ -11,17 +11,18 @@ body {
 .header1 {
   text-transform: uppercase;
   font-size: 10rem;
-  margin: 0;
   text-align: center;
-  // padding: 70px 0;
   text-shadow: 5px 5px 0 $light-blue,
                 6px 6px 10px $pink;
   @media (max-width: $first-breakpoint) {
     font-size: 8rem;
   }
+  @media (max-width: $fourth-breakpoint) {
+    font-size: 6rem;
+  }
 }
 .header2{
-  font-size: 2rem;
+  font-size: 3rem;
   &--dark {
   color: $jet;
   text-align: center;
@@ -29,8 +30,11 @@ body {
   &--large {
     font-size: 5rem;
     text-align: center;
-    margin: 0;
-    text-transform: lowercase;
+    margin-top: 0;
+    text-shadow: 0 0 1px $jet;
+    @media (max-width: $fourth-breakpoint) {
+      font-size: 3.2rem;
+    } 
   }
 }
 .header3 {
@@ -40,15 +44,12 @@ body {
 }
 .btn__txt {
   color: $white;
-  font-size: 4rem;
+  font-size: 3rem;
+  padding: 55px;
   text-decoration: none;
   font-family: $header-font;
   text-transform: uppercase;
   text-align: center;
-  padding: 150px 100px;
-  &:hover {
-    color: $pink;
-  }
   &--small {
     padding: 20px;
   }
@@ -57,8 +58,11 @@ body {
     padding: 0;    
   }
   @media (max-width: $third-breakpoint) {
-    padding: 25px;
+    padding: 10px;
   }
+  @media (max-width: $fourth-breakpoint) {
+    font-size: 1.6rem;
+  } 
 }
 .paragraph {
   color: $jet;
@@ -70,6 +74,10 @@ body {
   }
   &--left {
     text-align: left;
+  }
+  &--light {
+    color: grey;
+    line-height: 1.6;
   }
 }
 .input__txt {

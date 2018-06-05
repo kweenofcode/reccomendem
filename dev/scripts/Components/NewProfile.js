@@ -43,6 +43,11 @@ class NewProfile extends React.Component{
       twitter: '',
       website: '',
     }
+
+    this.setRef = ref => {
+      this.file = ref;
+    }
+
     // Handles all changes
     this.handleChange = this.handleChange.bind(this);
     // Displaying option to add new identities
@@ -60,7 +65,6 @@ class NewProfile extends React.Component{
     this.handleSubmitSkill = this.handleSubmitSkill.bind(this);
     this.handleCheckbox = this.handleCheckbox.bind(this);
     // 05 - Uploading Files
-    this.handleFileSelect = this.handleFileSelect.bind(this);
     this.handleFileUpload = this.handleFileUpload.bind(this);
     // 06 Form Submission
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -200,6 +204,10 @@ class NewProfile extends React.Component{
       skills: this.state.selectedSkills,
       twitter: this.state.twitter,
       website: this.state.website,
+      twitterURL: `http://www.twitter.com/${this.state.twitter}`,
+      instagramURL: `http://www.instagram.com/${this.state.instagram}`,
+      facebookURL: `http://facebook.com/${this.state.facebook}`,
+      websiteURL: `http://${this.state.website}`,
     }
     const dbRefSkills = firebase.database().ref('users');
     dbRefSkills.push(newUser);
@@ -252,23 +260,17 @@ class NewProfile extends React.Component{
       isChecked: (isChecked === true ? false : true),
     })
   }
-  // Function to handle when user adds a file
-  handleFileSelect(e) {
-    this.setState({
-      value: e.target.value
-    })
-  }
   // Function for when user uploads image
   handleFileUpload(e) {
     this.setState({
       uploading: true,
     })
     const file = this.file.files[0];
-    const imgUrl = this.state.value;
+    console.log(this.file)
     const storageRef = firebase.storage().ref();
     const mainImage = storageRef.child(this.file.files[0].name);
     mainImage.put(file).then((snapshot) => {
-      mainImage.getDownloadURL().then((url) => {
+      mainImage.getDownloadURL().then((url) => { 
         this.setState({
           avatarURL: url,
           uploading: false,
@@ -286,7 +288,7 @@ class NewProfile extends React.Component{
   // Start of render
   render() {
     return(
-      <div className="app-page profile-page">
+      <div className="app-page">
         <div className="app-page--wide">
         {/* Start of form */}
           <form action="#" onSubmit={this.handleFormSubmit}>
@@ -321,11 +323,12 @@ class NewProfile extends React.Component{
             {/* Start of identity options */}
             <div className='profile-item'>
               <h2 className="header2 header2--dark">Don't See Your Preferred Term?</h2>
-              <button className='btn btn--square btn--small btn__txt btn__txt--smaller btn--yellow' onClick={this.toggleHidden}>Add your identity</button>
+              <button className='btn btn--square btn--small btn__txt btn__txt--smaller btn--yellow' id="addBtn" onClick={this.toggleHidden}>Add your identity</button>
             </div>
             {/* Renders sexuality options to the page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Sexuality</h2>
+              <h2 className="header2 header2--dark">Your Sexuality</h2>
+              <p className="paragraph paragraph--light">Select your Sexuality. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>   
               <div className="options">
                 {this.state.sexualityOptions.map((sexualityOption, i) => {
                   return (<NewOption
@@ -347,6 +350,7 @@ class NewProfile extends React.Component{
             {/* Renders culturalBackground options to the page */ }
             <div className="profile-item">
               <h2 className="header2 header2--dark">Your Cultural Background</h2>
+              <p className="paragraph paragraph--light">Select your Cultural Background. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>              
               <div className="options">
                 {this.state.culturalBackgroundOptions.map((culturalBackgroundOption) => {
                   return (<NewOption
@@ -368,7 +372,8 @@ class NewProfile extends React.Component{
             </div>
             {/* Renders Gender options onto the page */ }
             <div className="profile-item">
-              <h2 className="header2 header2--dark">Gender Identity</h2>
+              <h2 className="header2 header2--dark">Your Gender Identity</h2>
+              <p className="paragraph paragraph--light">Select your Gender Identity. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>
               <div className="options">
                 {this.state.genderOptions.map((genderOption, i) => {
                   return (<NewOption
@@ -391,6 +396,7 @@ class NewProfile extends React.Component{
             {/* Renders skills list onto page */ }
             <div className="profile-item">
               <h2 className="header2 header2--dark">Your Skills</h2>
+              <p className="paragraph paragraph--light">Select all skills you possess. <br /> (<a href="#" onClick={this.toggleHidden}> Don't see your preferred term listed? </a>)</p>
               <div className="options">
                 {this.state.skillsList.map((skill) => {
                   return (<Checkbox
@@ -412,20 +418,22 @@ class NewProfile extends React.Component{
             {this.state.uploading ? <div className="loading"></div> : <div>
               <div className="profile-item profile-item--horizontal">
                 <h2 className="header2 header2--dark"> Upload Your Headshot</h2>
-                <div>
-                  <img src={this.state.avatarURL} alt="" />
-                  <input type="file" ref={(ref) => { this.file = ref }} onChange={this.handleFileSelect} />
-                  <button className="btn__txt--smaller btn__txt btn btn--square btn--yellow" onClick={this.handleFileUpload}>Upload</button>
+                <div className="profile-item__upload">
+                  <div>
+                    <img src={this.state.avatarURL} alt="" />
+                    <input type="file" ref={this.setRef} />
+                  </div>
+                  <button className="btn__txt--smaller btn__txt btn btn--square btn--yellow profile-item__upload__btn" onClick={this.handleFileUpload}>Upload</button>
                 </div>
               </div>
             </div>}
             {/* Make profile button that creates user and takes you to profile page */}
-            {this.state.avatarURL ? <div className="profile-item">
+            {this.state.avatarURL && this.state.submitted === false ? <div className="profile-item"> 
               <input className="btn btn--square btn--wide btn__txt btn__txt--smaller btn--yellow" type="submit" value="Make Profile" />
-            </div> : ''}
-            {this.state.submitted ? <Link className='btn btn--square btn__txt btn__txt--smaller accounts-page' to={routes.ACCOUNT_PAGE}> Account Page </Link> : ""}
+            </div> : "" }
           </form>
-      </div>
+          {this.state.submitted ? <Link className='btn btn--square btn--wide btn__txt btn__txt--smaller accounts-page' to={routes.ACCOUNT_PAGE}> Account Page </Link> : "" }
+        </div>
       </div>)
   }
 }

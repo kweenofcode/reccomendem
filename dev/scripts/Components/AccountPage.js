@@ -9,7 +9,7 @@ class AccountPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      allUsers: []
+      allUsers: [],
     }
   }
   componentDidMount() {
@@ -21,6 +21,7 @@ class AccountPage extends React.Component {
       for (let feature in user) {
         allUsers.push(user[feature])
       }
+      console.log(allUsers)
       this.setState({
         allUsers: allUsers
       })
@@ -41,10 +42,10 @@ class AccountPage extends React.Component {
             <h2 className="header2 profile__name">{user.firstName} <br /><span className="profile__name--last">{user.lastName}</span></h2>
             <h3 className="header3">About</h3>
             <ul className="list profile__list">
-              {user.city ? <li className="paragraph profile__list__item"><span className="profile__list__item__header">City: </span> {user.city} {user.province}</li>: ""}
-              {user.gender ?<li className="paragraph profile__list__item"><span className="profile__list__item__header"> Gender: </span> {user.gender}</li> : ""}
-              {user.sexuality ? <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Sexuality: </span> {user.sexuality}</li> : ""}
-              {user.culturalBackground ? <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Cultural Background: </span> {user.culturalBackground}</li> : ""}
+              {user.city ? <li className="paragraph profile__list__item"><span className="profile__list__item__header">City: </span> {user.city} {user.province}</li> : <li className="paragraph profile__list__item"><span className="profile__list__item__header">City: </span></li>}
+              {user.gender ? <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Gender: </span> {user.gender}</li> : <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Gender: </span></li>}
+              {user.sexuality ? <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Sexuality: </span> {user.sexuality}</li> : <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Sexuality: </span></li>}
+              {user.culturalBackground ? <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Cultural Background: </span> {user.culturalBackground}</li> : <li className="paragraph profile__list__item"><span className="profile__list__item__header"> Cultural Background: </span> </li>}
             </ul>
             <div className="profile__skills">
               <div className="profile__skills__list">
@@ -57,7 +58,7 @@ class AccountPage extends React.Component {
                       value={skill.value}
                     />
                   )
-                }) : ''}
+                  }) : <li className="paragraph profile__skills__item"></li>}
                 </ul>
               </div>
             </div>
@@ -65,10 +66,10 @@ class AccountPage extends React.Component {
           <div className="profile__social">
             <h3 className="header3">Social Links</h3>
             <ul className="list profile__social__list">
-                <li className="profile__social__item"><i className="fa fa-link"></i><p className="paragraph profile__social__link">{user.website}</p></li>
-                <li className="profile__social__item"><i className="fab fa-twitter"></i><p className="paragraph profile__social__link">{user.twitter}</p></li>
-                <li className="profile__social__item"><i className="fab fa-instagram"></i><p className="paragraph profile__social__link">{user.instagram}</p></li>
-                <li className="profile__social__item"><i className="fab fa-facebook"></i><p className="paragraph profile__social__link">{user.facebook}</p></li>
+                <li className="profile__social__item"><i className="fa fa-link"></i><p className="paragraph profile__social__link"><a href={user.websiteURL} target="_blank">{user.website}</a></p></li>
+                <li className="profile__social__item"><a href={user.twitterURL} target="_blank"><i className="fab fa-twitter"></i><p className="paragraph profile__social__link">{user.twitter}</p></a></li>
+                  <li className="profile__social__item"><a href={user.instagramURL} target="_blank"><i className="fab fa-instagram"></i><p className="paragraph profile__social__link">{user.instagram}</p></a></li>
+                <li className="profile__social__item"><a href={user.facebookURL} target="_blank"><i className="fab fa-facebook"></i><p className="paragraph profile__social__link">{user.facebook}</p></a></li>
             </ul>
           </div>
         </div>

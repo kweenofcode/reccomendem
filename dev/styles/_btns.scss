@@ -10,6 +10,10 @@
   &:hover {
     background: $gold;
     border: 2px solid $gold;
+    @media (max-width: $fourth-breakpoint){
+      background: $pink;
+      border: 2px solid $pink;
+    }
   }
   // Landing page and home buttons
   &--ripple:hover {
@@ -20,31 +24,23 @@
   }
   // Landing page buttons
   &--main {
-    padding: 150px 0;  
-    &:hover {
-      color: $gold;
-      @media (max-width: $third-breakpoint){
-        color: $pink;
-      }
-    }
-    @media (max-width: $first-breakpoint) {
-      width: 250px;
-      height: 250px;
-      padding: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;  
+    padding: 100px;
     @media (max-width: $third-breakpoint) {
-      width: 200px;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: auto;
+      height: auto;
+      padding: 10px;
+      border-radius: 0;
+      margin: 10px;
     }
   }
   // All square buttons
   &--square {
+    display: block;
     border-radius: 0;
     margin: 10px auto;
     padding: 20px;
@@ -74,7 +70,7 @@
       border: 2px solid $pink;
       @media (max-width: $third-breakpoint){
         color: $jet;
-        background-color: $gold;
+        background: $gold;
         border: 2px solid $gold;
       }
     }
@@ -82,8 +78,15 @@
   &--thin {
     width: 100px;
     height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @media (max-width: $fourth-breakpoint) {
+      width: 50px;
+      height: 50px;
+    }
+    &:hover {
+      @media (max-width: $fourth-breakpoint) {
+        background: none;
+        border: none;
+      }  
+    }
   }
 }

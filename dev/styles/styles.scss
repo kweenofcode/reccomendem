@@ -7,7 +7,21 @@
 // 02 - General Styles
 // 03 - New Profile Page
 // 04 - AccountPage
-
+.sign-up__link {
+  color: inherit;
+  text-decoration: none;
+  font-style: italic;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $gold;
+    @media (max-width: $third-breakpoint){
+      color: lightgrey;
+    }
+  }
+  @media (max-width: $third-breakpoint){
+    color: $pink;
+  }
+}
 // 01 - Landing Page
 .hide-nav {
   display: none;
@@ -15,54 +29,85 @@
   top: 0;
   right: 0;
 }
-.hidden-list {
+.main-nav, .hidden-list {
   position: fixed;
-  flex-direction: column;
-  right: 50px;
-  top: 30px;
-}
-.main-nav {
-  position: fixed;
-  top: 30px;
+  top: 90px;
   right: 50px;
   z-index: 999;
-  @media (max-width: $third-breakpoint) {
-    top: 0;
+  @media (max-width: $second-breakpoint) {
+    top: 10px;
+    right: 10px;
+  }
+  @media (max-width: $fourth-breakpoint) {
+    top: 5px;
+    right: 10px;
+  }  
+  &__item {
+    margin: 0;
+    @media (max-width: $fourth-breakpoint) {
+      background: none;
+      border: none;
+      background: none;
+      border: none;
+      color: white;
+    }
   }
 }
 .main-header {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  &__title {
+    @media (max-width: $second-breakpoint) {
+      position: fixed;
+      transform: rotate(270deg) translateX(0);
+      left: -280px;
+      top: 40%;
+    }   
+    @media (max-width: $fourth-breakpoint) {
+      left: -230px;
+    }
+  }
   @media (max-width: $second-breakpoint) {
-    transform: rotate(270deg) translateX(0);
-    left: -280px;
-    top: 40%;
+    margin-left: 150px;
+    width: calc(100% - 150px);
+  }
+  @media (max-width: $fourth-breakpoint) {
+    margin-top: 50px;
+    margin-left: 100px;
+    width: calc(100% - 150px);
+  }
+}
+.hidden-list {
+  position: fixed;
+  flex-direction: column;
+  justify-content: space-around;
+  bottom: 80px;
+  top: 20px;
+  @media (max-width: $second-breakpoint) {
+    top: 100px;
+  }
+  @media (max-width: $third-breakpoint) {
+    flex-direction: row-reverse;
+    top: 0;
+    left: 0;
   }
 }
 .main-list {
-  height: calc(100vh - 50px);
-  width: 80%;
+  padding: 0;
+  margin: 0;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px auto;
-  @media (max-width: $second-breakpoint) {
-    width: 80%;
-    margin-left: 100px;
-  }
-  @media (max-width: $third-breakpoint) {
-    flex-direction: column;
-  }
 }
 // 02 - General Styles
 .app-page {
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   justify-content: center;
   min-height: 100vh;
   max-width: 1500px;
-  margin: 0 auto;
+  margin: 0 auto;  
   &--signin, &--signup {
     width: 100%;
   }
@@ -76,21 +121,23 @@
     background: $white;
   }
   &--center {
-    width: 50%;
-    height: 80vh;
-    @media (max-width: $third-breakpoint) {
-      width: 300px;
+    width: 60%;
+    height: 77vh;     
+    @media (max-width: $second-breakpoint) {
+      width: 80%;
+    }
+    @media (max-width: $fourth-breakpoint) {
+      width: 95%;
     }
   }
   &--wide {
-    width: 900px;
+    margin: 90px auto;
+    width: 86%;
     border: 2px solid $gold;
     position: relative;
-    @media(max-width: $second-breakpoint) {
-      width: 700px;
-    }
+    padding-bottom: 50px;
     @media(max-width: $third-breakpoint) {
-      width: 80%;
+      width: 90%;
     }
   }
   &--padded {
@@ -104,21 +151,26 @@
 }
 // Styles for three specific pages
 .sign-in, .sign-out, .sign-up {
-  width: 400px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  @media (max-width: $second-breakpoint) {
+  width: 70%;
+  margin: 0 auto;
+  @media (max-width: $fourth-breakpoint) {
     width: 80%;
   }
 }
 // 03 - New Profile Page
-.profile-page {
-  margin: 80px 0;
-}
+
 label {
   color: $jet;
   padding: 10px 20px;
+  transition: background 0.5s ease-in-out;
+  text-align: center;
+  &:hover {
+    background: $gold;
+    cursor: pointer;
+    @media (max-width: $fourth-breakpoint){
+      background: none;
+    }
+  }
 }
 input[type=radio], input[type=checkbox] {
   display: none;
@@ -128,19 +180,24 @@ input[type=radio], input[type=checkbox] {
     padding: 10px 20px;
   }
 }
+input:focus {
+  border: 2px solid $pink;
+}
 input[type=text].main, input[type=password] {
   padding: 20px;
-  width: 400px;
-  border: 1px solid $pink;
+  width: 100%;
+  border: 2px solid lightgrey;
   margin: 10px auto;
-  @media(max-width: $second-breakpoint) {
-    width: 200px;
-  }
 }
 input[type=file]{
+  width: 400px;
+  text-align: center;
   background-color: lighten($gold, 20);
   padding: 25px 0 21px 20px;
   color: $jet;
+  @media (max-width: $third-breakpoint) {
+    width: 200px;
+  }
 }
 .hidden {
   display: none;
@@ -148,21 +205,22 @@ input[type=file]{
 .options {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;;
 }
 .profile-item {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  margin: 30px auto;
+  width: 100%;
+  margin: 0 auto;
   &__name {
     display: flex;
     flex-wrap: wrap;  
     flex-direction: row;
     justify-content: center;
     margin: 0 auto;
-    }
+  }
   &--horizontal {
     margin: 0 auto;
   }
@@ -172,12 +230,29 @@ input[type=file]{
     align-items: flex-start;
     width: 100%;
   }
+  &__upload {
+    width: 400px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 0;
+    &__btn {
+      margin: 0;
+      width: 100%;
+      @media (max-width: $third-breakpoint) {
+        width: 200px;
+      }
+    }
+    @media (max-width: $third-breakpoint) {
+      width: 200px;
+    }
+  }
 }
 .input--profile {
-  width: 40%;
+  width: 45%;
   padding: 15px 10px;
   margin: 10px;
-  border: 2px solid $gold; 
+  border: 2px solid lightgrey; 
   &--small {
     padding: 10px;
     border: 2px solid $gold;
@@ -193,9 +268,8 @@ input[type=file]{
   margin: 15px auto;
 }
 .accounts-page {
-  position: absolute;
-  bottom: 30px;
-  width: 100%;
+  display: inline-block;
+  margin: 20px auto;
 }
 // Special animated DIV for when photos are uploading to Firebase
 .loading {
@@ -236,7 +310,6 @@ input[type=file]{
   top: 50px;
   padding: 100px 0 150px 320px;
   &__img {
-    box-shadow: 0 0 10px 0 $gold; 
     display: flex;
     position: absolute;
     left: -20px;

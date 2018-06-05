@@ -67,17 +67,14 @@ class SignIn extends React.Component {
           <div className='sign-out'>
               <Link className="btn btn__txt btn__txt--smaller btn--square btn--wide" to={routes.ACCOUNT_PAGE}>Your Account</Link>   
               <button className="btn btn__txt btn__txt--smaller btn--square btn--wide" onClick={this.signOut}>Sign Out</button>
-          </div>
-          : <div>
-            <h2 className="header2 header2--dark"> Welcome Back!</h2>
-            <p className="paragraph">Please sign in below</p>
-            <form className="sign-in" onSubmit={(e) => this.signIn(e)}>
+          </div> :
+          <form className="sign-in" onSubmit={(e) => this.signIn(e)}>
+            <h2 className="header2 header2--dark"> Welcome Back!</h2> 
+            <p className="paragraph paragraph--light">Don't have an account? <Link className="sign-up__link" to={routes.SIGN_UP}>Sign Up</Link></p>
             <input className="input__txt main" type="text" placeholder="Please enter your e-mail address" onChange={(event) => this.handleChange(event, "loginEmail")} name="loginEmail" value={this.state.loginEmail}/>
             <input className="input__txt" type="password" placeholder="Please enter your password" onChange={(event) => this.handleChange(event, "loginPassword")}  name="loginPassword" value={this.state.loginPassword}/>
             <input className="btn btn__txt btn__txt--smaller btn--square btn--wide" type="submit" value="Login" />
-            <p className="paragraph">Don't have an account? <Link to={routes.SIGN_UP}>Sign Up</Link></p>
-          </form>
-        </div> }
+          </form> }
         </div>     
     </div>
     )
