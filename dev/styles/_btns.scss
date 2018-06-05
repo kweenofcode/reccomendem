@@ -49,6 +49,9 @@
   &--wide{
     width: 400px;
     @media (max-width: $second-breakpoint) {
+      width: 300px;
+    }
+    @media (max-width: $second-breakpoint) {
       width: 200px;
     }
   }

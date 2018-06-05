@@ -16,13 +16,11 @@ class AccountPage extends React.Component {
     const dbRef = firebase.database().ref('users');
     dbRef.on('value', (snapshot) => {
       const user = snapshot.val()
-      console.log(user)
       const allUsers = []
       for (let feature in user) {
         user[feature].key = feature;
         allUsers.push(user[feature])
       }
-      console.log(allUsers)
       this.setState({
         allUsers: allUsers
       })

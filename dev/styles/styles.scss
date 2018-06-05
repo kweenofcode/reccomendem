@@ -57,6 +57,8 @@
   display: flex; 
   flex-direction: column;
   justify-content: center;
+  width: 80%;
+  padding: 0 50px;
   &__title {
     @media (max-width: $second-breakpoint) {
       position: fixed;
@@ -75,6 +77,7 @@
   @media (max-width: $fourth-breakpoint) {
     margin-top: 50px;
     margin-left: 100px;
+    padding: 10px;
     width: calc(100% - 150px);
   }
 }
@@ -300,7 +303,7 @@ input[type=file]{
 }
 // 04 - Account Page
 .profile {
-  width: 60%;
+  width: 900px;
   margin: 100px auto;
   display: flex;
   flex-flow: row wrap;
@@ -315,7 +318,12 @@ input[type=file]{
     position: fixed;
     left: -150px;
     top: 40%;
-    transform: rotate(270deg)
+    transform: rotate(270deg);
+    @media (max-width: $third-breakpoint) {
+      transform: rotate(0deg);
+      position: static;
+      margin-top: 80px;
+    }
   }
   &__img {
     display: flex;
@@ -327,7 +335,13 @@ input[type=file]{
     width: 300px;
     object-fit: cover;
     @media (max-width: $second-breakpoint) {
-      top: -50px;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
+    @media (max-width: $third-breakpoint) {
+      width: 80%;
+      max-width: 300px;
     }
   }
   &__about {
@@ -343,6 +357,19 @@ input[type=file]{
       top: -50px;
       right: -95px;
       padding: 20px;
+      @media (max-width: $second-breakpoint) {
+        top: -170px;
+        right: -185px;
+      }
+      @media (max-width: $third-breakpoint) {
+        top: -50px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: $second-breakpoint) {
+      padding-left: 20px;
     }
   }
   &__name {
@@ -354,9 +381,7 @@ input[type=file]{
     text-shadow: 0 0 2px $white;
     margin: 0;
     @media (max-width: $third-breakpoint) {
-      transform: rotate(270deg);
-      right: -75px;
-      top: 0;
+      margin-top: 50px;
     }
   }
   &__list {
@@ -390,11 +415,9 @@ input[type=file]{
       display: flex;
       justify-content: space-around;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      flex: 1 1 50%;
     }
-    // &__header {
-    //   margin: 0;
-    // }
     &__link {
       display: flex;
       align-items: center;
@@ -411,24 +434,19 @@ input[type=file]{
     }
     &__list {
       display: flex;
-      justify-content: space-around;
-    }
-    @media (max-width: $second-breakpoint) {
-      width: 600px;
-    }
-    @media (max-width: $third-breakpoint) {
-      width: 400px;
+      justify-content: flex-start;
     }
   }
   @media (max-width: $second-breakpoint) {
-    width: 80%;
-    min-height: 500px;   
+    width: 550px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 1 auto;
   }
-  // @media (max-width: $third-breakpoint) {
-  //   width: 400px;
-  //   padding: 350px 20px 370px 20px;
-  //   text-align: center;
-  // }
+  @media (max-width: $third-breakpoint) {
+    width: 90%;
+    margin: 50px auto 0;
+  }
 }
 .input__label {
   padding: 0;
@@ -452,4 +470,9 @@ input[type=file]{
   100% {
     transform: rotate(360deg)
   }
+}
+.copyright{
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
 }
